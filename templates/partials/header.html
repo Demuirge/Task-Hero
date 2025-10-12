@@ -1,0 +1,15 @@
+<header>
+    <a href="{% url 'Task_Manager:home' %}" class="logo">TaskFlow 🚀</a>
+    <nav>
+        {% comment %} <a href="{% url 'features' %}">Features</a> {% endcomment %}
+        {% comment %} <a href="{% url 'pricing' %}">Pricing</a> {% endcomment %}
+        
+        {% if user.is_authenticated %}
+            {% comment %} <a href="{% url 'dashboard' %}" class="nav-button">Dashboard</a> {% endcomment %}
+            <a href="{% url 'user:log_out' %}" class="nav-button logout-btn">Log Out</a>
+        {% else %}
+            <a href="{% url 'user:sign_up' %}" class="nav-button signup-btn">Sign Up</a>
+            <a href="{% url 'user:log_in' %}" class="nav-button login-btn">Log In</a>
+        {% endif %}
+    </nav>
+</header>

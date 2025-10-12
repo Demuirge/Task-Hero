@@ -1,0 +1,195 @@
+/*
+    This CSS file provides styling for the log_in.html and sign_up.html pages.
+    It builds upon the aesthetics established in home.css.
+*/
+
+/* ---------------------------------------------------- */
+/* 1. Global Auth Container & Form Styling */
+/* ---------------------------------------------------- */
+
+/* Styles applied to the main div wrapper in both templates */
+.sign-up-container,
+.log-in-container { /* Add a class 'log-in-container' to your log_in.html main div */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    min-height: calc(100vh - 100px); /* Adjust to viewport height minus header/footer height */
+    background-color: #f8f9fa; /* Light background for the auth area */
+}
+
+.sigh-form,
+.log-in-form { /* Add class 'log-in-form' to your log_in.html form */
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.sigh-form h1,
+.log-in-form h1 {
+    color: #007bff; /* Primary Blue from homepage */
+    font-size: 2em;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* General form layout for field spacing */
+.sigh-form > div,
+.log-in-form > div {
+    margin-bottom: 20px;
+}
+
+/* ---------------------------------------------------- */
+/* 2. Form Field Styling (Labels and Inputs) */
+/* ---------------------------------------------------- */
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #343a40;
+    text-transform: capitalize;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* ---------------------------------------------------- */
+/* 3. Button and Link Styling */
+/* ---------------------------------------------------- */
+
+button[type="submit"] {
+    width: 100%;
+    background-color: #28a745; /* Success Green for the CTA */
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+    background-color: #218838;
+    transform: translateY(-1px);
+}
+
+/* Link area (Already have an account? / Don't have an account yet?) */
+.sign-up-container > div:last-child,
+.log-in-container > div:last-child {
+    margin-top: 20px;
+    font-size: 0.95em;
+    color: #6c757d;
+}
+
+/* Hyperlinks */
+.sign-up-container a,
+.log-in-container a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.sign-up-container a:hover,
+.log-in-container a:hover {
+    text-decoration: underline;
+}
+
+/* ---------------------------------------------------- */
+/* 4. Error Styling */
+/* ---------------------------------------------------- */
+
+/* Styles for non-field and field-specific errors */
+.sigh-form p,
+.log-in-form p {
+    color: #dc3545; /* Danger Red */
+    font-size: 0.85em;
+    margin: 5px 0 0 0;
+    padding: 5px;
+}
+
+.sigh-form div p,
+.log-in-form div p {
+    /* Specific styling for field errors */
+    border-left: 3px solid #dc3545;
+    padding-left: 8px;
+    background-color: #f8d7da; /* Light red background */
+}
+
+/* ---------------------------------------------------- */
+/* 5. Message Styling (Success, Error, Info/Warning)    */
+/* ---------------------------------------------------- */
+
+.message-container {
+    /* Container to center and limit the width of messages, if placed outside the form */
+    width: 100%;
+    max-width: 400px; /* Same width as the form */
+    margin: 20px auto 0 auto; /* Margin above the form */
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.message {
+    padding: 12px 20px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    font-size: 0.95em;
+    font-weight: 500;
+    line-height: 1.4;
+    border: 1px solid transparent;
+}
+
+/* Success Messages (e.g., "Account created successfully") */
+.message.success {
+    color: #155724; /* Dark green text */
+    background-color: #d4edda; /* Light green background */
+    border-color: #c3e6cb; /* Medium green border */
+}
+
+/* Error Messages (e.g., "Invalid credentials") */
+.message.error {
+    color: #721c24; /* Dark red text */
+    background-color: #f8d7da; /* Light red background (same as field errors) */
+    border-color: #f5c6cb; /* Medium red border */
+}
+
+/* Info/Warning Messages (e.g., "Your session has expired") */
+.message.warning,
+.message.info {
+    color: #856404; /* Dark yellow/brown text */
+    background-color: #fff3cd; /* Light yellow background */
+    border-color: #ffeeba; /* Medium yellow border */
+}
+
+/* Ensure the field-level errors (which are simple <p> tags) stay distinct */
+.sigh-form div p,
+.log-in-form div p {
+    /* Keep the border-left style for field errors to visually differentiate them */
+    border-left: 3px solid #dc3545;
+    padding-left: 8px;
+    background-color: transparent; /* Remove background color to avoid double-filling */
+}
