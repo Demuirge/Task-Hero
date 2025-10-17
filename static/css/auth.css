@@ -80,7 +80,11 @@ input[type="password"]:focus {
 /* ---------------------------------------------------- */
 
 button[type="submit"] {
-    width: 100%;
+    display: block; /* Allows the button to accept auto margins */
+    width: auto; /* Let the button size itself based on its text */
+    min-width: 200px; /* Give it a nice minimum width */
+    margin-left: auto; /* These two lines are the magic for centering */
+    margin-right: auto;
     background-color: #28a745; /* Success Green for the CTA */
     color: white;
     padding: 12px;
@@ -90,7 +94,7 @@ button[type="submit"] {
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
-    margin-top: 10px;
+    margin-top: 25px; /* Added more top margin for better spacing */
 }
 
 button[type="submit"]:hover {

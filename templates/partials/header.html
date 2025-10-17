@@ -1,15 +1,28 @@
 <header>
     <a href="{% url 'Task_Manager:home' %}" class="logo">TaskFlow 🚀</a>
     <nav>
-        {% comment %} <a href="{% url 'features' %}">Features</a> {% endcomment %}
-        {% comment %} <a href="{% url 'pricing' %}">Pricing</a> {% endcomment %}
-        
         {% if user.is_authenticated %}
-            {% comment %} <a href="{% url 'dashboard' %}" class="nav-button">Dashboard</a> {% endcomment %}
-            <a href="{% url 'user:log_out' %}" class="nav-button logout-btn">Log Out</a>
+        
+            <form action="{% url 'Task_Manager:home' %}" method="GET">
+                <button type="submit" class="nav-button home-btn">Home</button>
+            </form>
+
+            <form action="{% url 'Task_Manager:dashboard' %}" method="GET">
+                <button type="submit" class="nav-button dashboard-btn">Dashboard</button>
+            </form>
+            
+            <form action="{% url 'user:log_out' %}" method="POST">
+                {% csrf_token %}
+                <button type="submit" class="nav-button logout-btn">Log Out</button>
+            </form>
         {% else %}
-            <a href="{% url 'user:sign_up' %}" class="nav-button signup-btn">Sign Up</a>
-            <a href="{% url 'user:log_in' %}" class="nav-button login-btn">Log In</a>
+            <form action="{% url 'user:sign_up' %}" method="GET">
+                <button type="submit" class="nav-button signup-btn">Sign Up</button>
+            </form>
+
+            <form action="{% url 'user:log_in' %}" method="GET">
+                <button type="submit" class="nav-button login-btn">Log In</button>
+            </form>
         {% endif %}
     </nav>
 </header>

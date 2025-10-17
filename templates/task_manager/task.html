@@ -1,0 +1,40 @@
+{% extends "partials/base.html" %}
+
+{% block title %}{{ task.title }}{% endblock title %}
+
+{% block content %}
+<div class="task-detail-container">
+    <div class="task-detail-card">
+        <div class="task-detail-header">
+            <h1>{{ task.title }}</h1>
+            <span class="status-badge status-{{ task.status|lower }}">{{ task.get_status_display }}</span>
+        </div>
+
+        <div class="task-info">
+            <p><strong>Priority:</strong> <span class="priority-text priority-{{ task.priority|lower }}">{{ task.get_priority_display }}</span></p>
+            <p><strong>Due Date:</strong> {{ task.due_date|date:"F d, Y" }}</p>
+        </div>
+
+        {% if task.description %}
+            <div class="task-description">
+                <h3>Description</h3>
+                <p>{{ task.description|linebreaksbr }}</p>
+            </div>
+        {% endif %}
+
+        <div class="form-actions">
+            <div>
+                <a href="{% url 'Task_Manager:edit_task' task.id %}" class="btn-primary btn">Edit</a>
+                <a href="{% url 'Task_Manager:confirm_delete_task' task.id %}" class="btn-danger btn">Delete</a>
+            </div>
+
+            {% if task.status != 'C' %}
+            <form action="{% url 'Task_Manager:mark_task_completed' task.id %}" method="POST" style="margin: 0;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-success">Mark as Completed</button>
+            </form>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock content %}

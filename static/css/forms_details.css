@@ -1,0 +1,183 @@
+/* static/css/forms_details.css */
+
+/* --- Main Container Styling for Forms & Detail Pages --- */
+.form-container,
+.task-detail-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.form-card,
+.task-detail-card,
+.delete-card {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-card h1,
+.task-detail-card h1,
+.delete-card h1 {
+    color: #007bff; /* Primary Blue */
+    font-size: 2.2em;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* --- NEW: Form Group Styling --- */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #343a40;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+
+/* --- NEW: Error Message Styling (Matches your auth.css) --- */
+.error-list {
+    margin-top: 5px;
+}
+
+.error-message {
+    color: #721c24; /* Dark red text */
+    background-color: #f8d7da; /* Light red background */
+    border: 1px solid #f5c6cb; /* Medium red border */
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    list-style: none; /* Removes bullet points */
+}
+.error-message li {
+    margin-bottom: 5px;
+}
+
+
+/* --- Task Detail Page Styling (No Changes Here) --- */
+.task-detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+.status-badge {
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.9em;
+    font-weight: bold;
+    color: white;
+}
+.status-td { background-color: #6c757d; }
+.status-ip { background-color: #007bff; }
+.status-c { background-color: #28a745; }
+
+.priority-text.priority-h { color: #dc3545; font-weight: bold; }
+.priority-text.priority-m { color: #ffc107; font-weight: bold; }
+.priority-text.priority-l { color: #007bff; font-weight: bold; }
+
+.task-description {
+    margin: 30px 0;
+    line-height: 1.6;
+}
+
+/* --- Action Buttons & Links (No Changes Here) --- */
+.form-actions {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn, button[type="submit"] {
+    text-decoration: none;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.btn-primary { background-color: #007bff; color: white; }
+.btn-primary:hover { background-color: #0056b3; transform: translateY(-1px);}
+
+.btn-success { background-color: #28a745; color: white; }
+.btn-success:hover { background-color: #218838; transform: translateY(-1px);}
+
+.btn-danger { background-color: #dc3545; color: white; }
+.btn-danger:hover { background-color: #c82333; transform: translateY(-1px);}
+
+.btn-secondary, .link-secondary {
+    background-color: transparent;
+    color: #6c757d;
+    text-decoration: none;
+}
+.link-secondary:hover { text-decoration: underline; }
+
+
+/* static/css/forms_details.css */
+
+/* --- Action Buttons & Links --- */
+.form-actions {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column; /* This is the key change: stacks items vertically */
+    align-items: center;    /* Centers the items horizontally */
+    gap: 15px;              /* Adds space between the stacked buttons */
+}
+
+/* Let's make all buttons a consistent width for a cleaner look */
+.btn, button[type="submit"] {
+    text-decoration: none;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s;
+    width: 100%;       /* Make buttons full-width of their container */
+    max-width: 300px;  /* But not excessively wide on large screens */
+}
+
+/* NEW: Style for the secondary/cancel button */
+.btn-secondary {
+    background-color: #4178a8;
+    color: white;
+}
+.btn-secondary:hover {
+    background-color: #376791;
+    transform: translateY(-1px);
+}
+
+/* Other button styles remain the same */
+.btn-primary { background-color: #007bff; color: white; }
+.btn-primary:hover { background-color: #0056b3; transform: translateY(-1px); }
+/* ... etc ... */

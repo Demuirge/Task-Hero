@@ -2,13 +2,12 @@
 {% block title %}TaskFlow - Organize Your Life{% endblock %}
 
 {% block content %}
-
     <section class="hero">
         <h1>Organize Your Life, One Task at a Time.</h1>
         <p>Stop feeling overwhelmed. TaskFlow helps you capture, prioritize, and complete your tasks easily, so you can focus on what matters.</p>
         
         {% if user.is_authenticated %}
-            {% comment %} <a href="{% url 'Task_Manager:dashboard' %}" class="cta-button">Go to Dashboard</a> {% endcomment %}
+            <a href="{% url 'Task_Manager:dashboard' %}" class="cta-button">Go to Dashboard</a>
         {% else %}
             <a href="{% url 'user:sign_up' %}" class="cta-button">Start Managing Tasks Now — It's Free!</a>
         {% endif %}

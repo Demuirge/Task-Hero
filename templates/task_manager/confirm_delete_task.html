@@ -1,0 +1,21 @@
+{% extends "partials/base.html" %}
+
+{% block title %}Confirm Delete{% endblock title %}
+
+{% block content %}
+<div class="form-container">
+    <div class="delete-card">
+        <h1>Confirm Deletion</h1>
+        <p style="text-align: center; font-size: 1.1em;">Are you sure you want to permanently delete the task titled: <strong>"{{ task.title }}"</strong>?</p>
+        <p style="text-align: center;">This action cannot be undone.</p>
+        
+        <form method="POST" action="{% url 'Task_Manager:delete_task' task.id %}">
+            {% csrf_token %}
+            <div class="form-actions" style="justify-content: center; gap: 20px;">
+                <a href="{% url 'Task_Manager:task' task.id %}" class="btn btn-secondary">No, Go Back</a>
+                <button type="submit" class="btn btn-danger">Yes, Delete Task</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content %}

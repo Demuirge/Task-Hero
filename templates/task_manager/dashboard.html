@@ -1,0 +1,73 @@
+{% extends "partials/base.html" %}
+
+{% block title %} Your Tasks {% endblock title %}
+
+{% block content %}
+<div class="dashboard-container">
+    <div class="dashboard-header">
+        <h1>Welcome, {{ request.user.first_name|default:request.user.username|capfirst }}!</h1>
+        <a href="{% url 'Task_Manager:create_task' %}" class="create-task-btn">Create a Task</a>
+    </div>
+
+    <div class="task-board-container">
+
+        <div class="task-column">
+            <h2>To Do</h2>
+            {% for task in todo_tasks %}
+                <div class="task-card priority-{{ task.priority|lower }}">
+                    <h3>
+                        <a href="{% url 'Task_Manager:task' task.id %}">{{ task.title }}</a>
+                    </h3>
+                    <p><strong>Due Date:</strong> {{ task.due_date|date:"F d, Y" }}</p>
+                    <p><strong>Priority:</strong> {{ task.get_priority_display }}</p>
+                    <div class="task-actions">
+                        <a href="{% url 'Task_Manager:edit_task' task.id %}">Edit</a>
+                        <a href="{% url 'Task_Manager:confirm_delete_task' task.id %}" class="delete-link">Delete</a>
+                    </div>
+                </div>
+            {% empty %}
+                <p class="no-tasks">No tasks to do. Well done!</p>
+            {% endfor %}
+        </div>
+
+        <div class="task-column">
+            <h2>In Progress</h2>
+            {% for task in inprogress_tasks %}
+                <div class="task-card priority-{{ task.priority|lower }}">
+                    <h3>
+                        <a href="{% url 'Task_Manager:task' task.id %}">{{ task.title }}</a>
+                    </h3>
+                    <p><strong>Due Date:</strong> {{ task.due_date|date:"F d, Y" }}</p>
+                    <p><strong>Priority:</strong> {{ task.get_priority_display }}</p>
+                    <div class="task-actions">
+                        <a href="{% url 'Task_Manager:edit_task' task.id %}">Edit</a>
+                        <a href="{% url 'Task_Manager:confirm_delete_task' task.id %}" class="delete-link">Delete</a>
+                    </div>
+                </div>
+            {% empty %}
+                <p class="no-tasks">No tasks currently in progress.</p>
+            {% endfor %}
+        </div>
+
+        <div class="task-column">
+            <h2>Completed</h2>
+            {% for task in completed_tasks %}
+                <div class="task-card priority-{{ task.priority|lower }}">
+                    <h3>
+                        <a href="{% url 'Task_Manager:task' task.id %}">{{ task.title }}</a>
+                    </h3>
+                    <p><strong>Due Date:</strong> {{ task.due_date|date:"F d, Y" }}</p>
+                    <p><strong>Priority:</strong> {{ task.get_priority_display }}</p>
+                    <div class="task-actions">
+                        <a href="{% url 'Task_Manager:edit_task' task.id %}">Edit</a>
+                        <a href="{% url 'Task_Manager:confirm_delete_task' task.id %}" class="delete-link">Delete</a>
+                    </div>
+                </div>
+            {% empty %}
+                <p class="no-tasks">No tasks completed yet.</p>
+            {% endfor %}
+        </div>
+
+    </div>
+</div>
+{% endblock content %}

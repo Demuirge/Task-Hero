@@ -1,11 +1,6 @@
-/*
-    Django Static Setup:
-    This file should be placed in your Django project under:
-    [app_name]/static/css/home.css
-*/
+/* static/css/home.css */
 
 html {
-    /* Ensure HTML is full height */
     height: 100%;
 }
 
@@ -16,22 +11,19 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     margin: 0;
     padding: 0;
-    background-color: #f4f7f6; /* Light gray-green background */
+    background-color: #f4f7f6;
     color: #333;
     min-height: 100vh;
 }
 
-/* New Rule for Main Content */
 main {
-    /* This is the magic: it tells the main content area to grow and take up all remaining space */
     flex-grow: 1; 
-    /* We don't want any default padding/margin interfering */
     width: 100%; 
 }
 
-/* Header/Navigation */
+/* --- Header & Navigation --- */
 header {
-    background-color: #007bff; /* Primary Blue */
+    background-color: #007bff;
     color: white;
     padding: 15px 40px;
     display: flex;
@@ -47,66 +39,113 @@ header .logo {
     color: white;
 }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    margin-left: 20px;
-    font-weight: 500;
-    transition: color 0.3s;
+/* --- Main Navigation Styling (Corrected & Consolidated) --- */
+header nav {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Consistent spacing for all items */
 }
 
-nav a:hover {
-    color: #d1e5ff; /* Lighter blue on hover */
+/* Target all forms in the nav for correct layout */
+header nav form {
+    margin: 0; /* Removes default form margins */
 }
 
-/* Navigation Buttons (Sign Up/Log In/Log Out) */
+/* Base style for ALL navigation buttons */
 .nav-button {
     background-color: transparent;
     border: 2px solid white;
     padding: 8px 15px;
     border-radius: 4px;
-    transition: background-color 0.3s, border-color 0.3s;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
 .nav-button:hover {
     background-color: white;
-    color: #007bff !important; /* Override white hover color */
+    color: #007bff !important;
 }
 
-.signup-btn {
-    background-color: #28a745; /* Success Green */
-    border-color: #28a745;
+/* --- Unique Button Colors --- */
+
+/* Dashboard Button: Yellow */
+.home-btn {
+    background-color: #6c757d !important; /* Gray */
+    border-color: #6c757d !important;
 }
 
-.signup-btn:hover {
-    background-color: #218838;
-    border-color: #218838;
+.home-btn:hover {
+    background-color: #5a6268 !important;
+    border-color: #5a6268 !important;
     color: white !important;
 }
 
-/* Hero Section */
+.dashboard-btn {
+    background-color: #ffc107 !important;
+    border-color: #ffc107 !important;
+    color: #333 !important;
+}
+.dashboard-btn:hover {
+    background-color: #e0a800 !important;
+    border-color: #e0a800 !important;
+    color: #333 !important;
+}
+
+/* Sign Up Button: Green */
+.signup-btn {
+    background-color: #28a745 !important;
+    border-color: #28a745 !important;
+}
+.signup-btn:hover {
+    background-color: #218838 !important;
+    border-color: #218838 !important;
+    color: white !important;
+}
+
+/* Log In Button: Default transparent outline */
+.login-btn {
+    /* No override needed, uses the base .nav-button style */
+}
+
+/* Log Out Button: Red */
+.logout-btn {
+    background-color: #dc3545 !important;
+    border-color: #dc3545 !important;
+}
+.logout-btn:hover {
+    background-color: #c82333 !important;
+    border-color: #c82333 !important;
+    color: white !important;
+}
+
+
+/* --- Hero Section --- */
 .hero {
-    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%); /* Blue gradient */
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
     color: white;
     text-align: center;
     padding: 100px 20px;
+    margin-top: 0 !important;
 }
-
 .hero h1 {
     font-size: 3em;
     margin-bottom: 0.5em;
+    margin-top: 0;
 }
-
 .hero p {
     font-size: 1.2em;
     margin-bottom: 1.5em;
     max-width: 600px;
     margin: 0 auto 1.5em;
 }
-
 .cta-button {
     display: inline-block;
-    background-color: #ffc107; /* Amber/Yellow for high contrast CTA */
+    background-color: #ffc107;
     color: #333;
     padding: 12px 30px;
     text-decoration: none;
@@ -116,24 +155,21 @@ nav a:hover {
     transition: background-color 0.3s, transform 0.2s;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
 }
-
 .cta-button:hover {
-    background-color: #e0a800; /* Darker yellow on hover */
+    background-color: #e0a800;
     transform: translateY(-2px);
 }
 
-/* Features Section */
+/* --- Features Section --- */
 .features {
     padding: 60px 20px;
     text-align: center;
 }
-
 .features h2 {
     font-size: 2em;
     color: #007bff;
     margin-bottom: 40px;
 }
-
 .feature-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -141,7 +177,6 @@ nav a:hover {
     max-width: 1200px;
     margin: 0 auto;
 }
-
 .feature-card {
     background-color: white;
     padding: 30px;
@@ -150,17 +185,14 @@ nav a:hover {
     text-align: left;
     transition: transform 0.3s;
 }
-
 .feature-card:hover {
     transform: translateY(-5px);
 }
-
 .feature-card h3 {
     color: #0056b3;
     margin-top: 15px;
     font-size: 1.3em;
 }
-
 .icon {
     font-size: 2.5em;
 }
@@ -168,17 +200,15 @@ nav a:hover {
 .clock { color: #ffc107; }
 .lightning { color: #dc3545; }
 
+/* --- Footer --- */
 footer {
-    /* The footer will now be pushed to the bottom by the growing 'main' element */
     background-color: #333;
     color: #bbb;
     text-align: center;
     padding: 20px;
     font-size: 0.9em;
-    /* Optional: Ensure footer doesn't shrink, though unlikely with this setup */
     flex-shrink: 0; 
 }
-
 footer a {
     color: #007bff;
     text-decoration: none;

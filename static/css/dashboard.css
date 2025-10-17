@@ -1,0 +1,140 @@
+/* static/css/dashboard.css */
+
+/* ------------------------------------------- */
+/* 1. Dashboard Header & Main Action Button    */
+/* ------------------------------------------- */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 0 10px; /* Add some padding */
+}
+
+.dashboard-header h1 {
+    color: #333;
+    font-size: 2em;
+}
+
+.create-task-btn {
+    background-color: #007bff; /* Primary Blue from home.css */
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+.create-task-btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* ------------------------------------------- */
+/* 2. Main Three-Column Board Layout           */
+/* ------------------------------------------- */
+.task-board-container {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+
+.task-column {
+    flex: 1; /* Each column takes equal space */
+    background-color: #f4f7f6; /* Light gray-green from home.css */
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.task-column h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #333;
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+/* ------------------------------------------- */
+/* 3. Task Card Styling                        */
+/* ------------------------------------------- */
+.task-card {
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Subtle shadow like feature cards */
+    border-left: 5px solid #ccc; /* Default border */
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.task-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.task-card h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #0056b3; /* Darker Primary Blue */
+}
+
+.task-card p {
+    margin: 5px 0;
+    color: #555;
+    font-size: 0.9em;
+}
+
+/* --- Priority Color Coding --- */
+.priority-h { border-left-color: #dc3545; } /* Red (from auth.css error color) */
+.priority-m { border-left-color: #ffc107; } /* Yellow (from home.css cta color) */
+.priority-l { border-left-color: #007bff; } /* Blue (Primary site color) */
+
+
+/* ------------------------------------------- */
+/* 4. Task Actions & Empty State               */
+/* ------------------------------------------- */
+.task-actions {
+    margin-top: 15px;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+    text-align: right;
+    font-size: 0.9em;
+}
+
+.task-actions a {
+    text-decoration: none;
+    color: #007bff;
+    margin-left: 15px;
+    font-weight: bold;
+}
+.task-actions a.delete-link {
+    color: #dc3545; /* Red for delete action */
+}
+
+.no-tasks {
+    color: #777;
+    text-align: center;
+    padding: 20px;
+    font-style: italic;
+}
+
+.task-card h3 a {
+    text-decoration: none;
+    color: inherit; /* Inherits the color from the h3 tag */
+}
+
+
+
+/* This targets ONLY cards that ended up with the .priority-high class */
+.priority-high { 
+    border-left-color: #dc3545; /* Red */
+}
+
+/* This targets ONLY cards with the .priority-medium class */
+.priority-medium { 
+    border-left-color: #ffc107; /* Yellow */
+}
+
+/* This targets ONLY cards with the .priority-low class */
+.priority-low { 
+    border-left-color: #007bff; /* Blue */
+}

@@ -8,21 +8,23 @@
     <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.png' %}">
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
     <link rel="stylesheet" href="{% static 'css/auth.css' %}">
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+    <link rel="stylesheet" href="{% static 'css/forms_details.css' %}">
 </head>
 <body>
 
     {% include 'partials/header.html' %}
 
     <main>
-        <div class="message-container">
-            {% if messages %}
+        {% if messages %}
+            <div class="message-container">
                 {% for message in messages %}
                     <div class="message {{ message.tags }}" role="alert">
                         {{ message }}
                     </div>
                 {% endfor %}
-            {% endif %}
-        </div>
+            </div>
+        {% endif %}
         {% block content %}
         {% endblock %}
     </main>
